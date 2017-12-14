@@ -6,6 +6,8 @@ This is a live list of French-based startups operating in the Oil & Gas and the 
 
 It is not a definitive list and will be updated and published regularly based on communications from the community.
 
+![](/02-Pics/2017_12_14_live_list.svg)
+
 ### How It Works
 
 To add a startups name to the list, two methods are possible:
