@@ -45,6 +45,11 @@
 #### Oil & Gas | Renewable Energy
 ##### Robotics
 
+## Horizon Data Services
+### Paris
+#### Oil & Gas
+##### Inspection Services & Technology
+
 ## Glowee
 ### Paris
 #### Sustainable Energy
