@@ -6,14 +6,18 @@ This is a live list of French-based startups operating in the Oil & Gas and the 
 
 It is not a definitive list and will be updated and published regularly based on communications from the community.
 
-![Oil & Energy - French Startup Landscape map](02-Pics/capture.PNG)
+![Oil & Energy - French Startup Landscape map](02-Pics/mindmap.jpg)
 
 ### How It Works
 
-To add a startups name to the list, two methods are possible:
+#### Overview
+To add a startups name to the list, follow one of the options and use the format below:
 
 1. Send an email to peter@computationhub.com
-2. Open a new issue
+2. Open a new GtHub issue (you need to be signed up to Github)
+
+#### Format
+![Format](02-Pics/format.jpg)
 
 ### Distribution
 The latest and greatest list will be published in the following LinkedIn Groups and via this medium:
