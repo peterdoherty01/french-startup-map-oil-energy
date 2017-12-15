@@ -4,9 +4,9 @@
 
 This is a live list of French-based startups operating in the Oil & Gas and the Renewables sector. The objective is to have a live database of startup companies within France.
 
-It is not a definitive list and will be updated and published regularly based on communications from the community.
+This is not a definitive list and will be updated and published regularly based on communications from the community.
 
-![mindmap](https://user-images.githubusercontent.com/22255078/34044596-db7d83b2-e1a5-11e7-932e-97d16938940a.JPG)
+![mindmap](https://user-images.githubusercontent.com/22255078/34050126-0b932c3c-e1ba-11e7-97dd-b4e5c4c87a2c.JPG)
 
 ### How It Works
 

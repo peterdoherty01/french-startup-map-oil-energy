@@ -43,7 +43,7 @@
 ## Forssea Robotics
 ### Paris | Clapier | Frontignan
 #### Oil & Gas | Renewable Energy
-##### Robotics
+##### Subsea Robotics
 
 ## Horizon Data Services
 ### Paris
