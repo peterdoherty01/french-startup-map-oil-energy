@@ -23,7 +23,7 @@
 ## Computation Hub
 ### Paris
 #### Oil & Gas | Renewable Energy
-##### Machine Learning Applications
+##### Machine Learning Software-as-a-Service
 
 ## D-ICE
 ### Nantes
