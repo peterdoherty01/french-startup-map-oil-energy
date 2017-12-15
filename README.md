@@ -28,7 +28,7 @@ The latest and greatest list will be published in the following LinkedIn Groups 
 
 ### Suggestions
 
-All suggestions are welcomed by referring to the "How It Works" section. If you want to be a contributor to Github for this repo, please contact me to get access.
+All suggestions are welcomed. Please refer to the "How It Works" section. If you want to be a contributor to Github for this repo, please contact me to get access.
 
 ### License
 MIT License.
