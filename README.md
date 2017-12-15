@@ -17,6 +17,8 @@ To add a startups name to the list, follow one of the options and use the format
 2. Open a new GitHub issue (you need to be signed up to Github)
 
 #### Format
+Please use the following format in your request:
+
 ![format](https://user-images.githubusercontent.com/22255078/34044604-e47f26e6-e1a5-11e7-8c8e-1a5f29a270f7.JPG)
 
 ### Distribution
