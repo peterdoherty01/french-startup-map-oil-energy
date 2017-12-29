@@ -90,6 +90,11 @@
 #### Renewable Energy
 ##### Photovoltaic power plants
 
+## ROBOPLANET
+### Nantes
+#### Oil & Gas
+##### Robots for Inspection and Corrosion Detection
+
 ## Spinergie
 ### Paris
 #### Oil & Gas | Renewable Energy
