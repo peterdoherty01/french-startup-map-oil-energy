@@ -31,7 +31,7 @@
 ##### Hydrodynamics and Advanced Control Systems
 
 ## e-Odyn
-### Brest
+### Plouzane
 #### Oil & Gas | Renewable Energy
 ##### Data Services for Surface Currents Masurements
 
