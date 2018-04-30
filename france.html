@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+<body>
+    <svg width="2200" height="1280"></svg>
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script>
+        // Hubs = Paris, Brest etc
+        // Main Lines connect hubs
+        // Spawning from the hubs are lines which startups are located on
+        // Extract the width and height that was computed by CSS.
+
+        var width = innerWidth,
+            height = innerHeight;
+
+        var svg = d3.select("svg"),
+            margin = {top: 20, right: 20, bottom: 30, left: 50},
+            width = +svg.attr("width") - margin.left - margin.right,
+            height = +svg.attr("height") - margin.top - margin.bottom,
+            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        
+        var projection = d3.geoMercator()
+            .scale(4100)
+            .translate([width*0.5, height * 3.5]);
+
+        var path = d3.geoPath()
+            .projection(projection);
+        
+        // France Data
+        d3.json("map_data/france-cstm.geojson", function(err, geojson) {
+            svg.append("path")
+            .attr("d", path(geojson))
+            .attr("fill", "white")
+            .style("stroke", "steelblue")
+            .style("stroke-width", 1);
+
+
+
+            
+
+        });
+
+    </script>
+    
+
+</body>
+</html>
