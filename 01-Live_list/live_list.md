@@ -15,6 +15,11 @@
 #### Oil & Gas
 ##### Drilling Fluids and Solids Control
 
+## Cleverfield
+### Paris
+#### Oil & Gas
+##### Production, Reservoir Engineering and Software development
+
 ## Coldpad
 ### Paris
 #### Oil & Gas
@@ -60,6 +65,11 @@
 #### Renewable Energy
 ##### Innovative foundations
 
+## Internest
+### Paris
+#### Oil & Gas
+##### Autonomous Flights
+
 ## Kayrros
 ### Paris | San Francisco | New York
 #### Oil & Gas | Renewable Energy
@@ -69,6 +79,11 @@
 ### Paris | Houston | Singapore | London | Dubai
 #### Oil & Gas
 ##### Cargo intelligence
+
+## Maillance
+### Paris
+#### Oil & Gas
+##### Artificial Intelligence Solutions
 
 ## New Wind
 ### Paris | Brest
@@ -94,6 +109,11 @@
 ### Nantes
 #### Oil & Gas
 ##### Robots for Inspection and Corrosion Detection
+
+## Skipper NDT
+### Paris
+#### Oil & Gas
+##### Non-Destructive Testing and Inspection
 
 ## Spinergie
 ### Paris
