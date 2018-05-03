@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Oil &amp; Energy French Startup Landscape | Peter Doherty</title>
 </head>
 <style>
     
@@ -35,35 +35,22 @@
             .projection(projection);
         
         // France Data
-        d3.json("map_data/france-cstm.geojson", function(err, mapData) {
+        d3.json("map_data/map.geojson", function(err, mapData) {
 
             var features = mapData.features;
-                console.log(features[0].geometry.coordinates[0]);
 
-            // Draw each province as a path
+            // Draw border and lines
             svg.selectAll('path')
                 .data(features)
                 .enter().append('path')
                 .attr('d', path)
                 .attr("fill", "white")
-                .style("stroke", "blue")
-                .style("stroke-width", 1);
-
-            // Line generator
-            // var line = d3.line()
-            //     .x(function(d) { return d.x; })
-            //     .y(function(d) { return d.y; })
-            //     .curve(d3.curveLinear);
-
-            // svg.selectAll('path')
-            // .data(data)
-            // .enter().append('path')
-            // .attr('d', function(d) { return line(d.p); })
-            // .attr('stroke-width', function(d) { return d.thickness; })
-            // .attr('stroke', function(d) { return d.colour; })
-            // .attr("fill", "None");          
+                .style("stroke", (function(d) { return d.properties.stroke; }))
+                .style("stroke-width", (function(d) { return d.properties.stroke-width; }));         
 
         });
+        
+
 
 
 
