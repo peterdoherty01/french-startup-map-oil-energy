@@ -6,11 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Oil &amp; Energy French Startup Landscape | Peter Doherty</title>
 </head>
-<style>
-    
-</style>
 <body>
-    <svg width="2200" height="1280"></svg>
+    <svg width="1280" height="1250"></svg>
     <script src="http://d3js.org/d3.v4.min.js"></script>
     <script>
         // Hubs = Paris, Brest etc
@@ -18,24 +15,25 @@
         // Spawning from the hubs are lines which startups are located on
         // Extract the width and height that was computed by CSS.
 
-        var width = innerWidth,
-            height = innerHeight;
+        var scale = 4100,
+            heightFactor = 620;
 
         var svg = d3.select("svg"),
             margin = {top: 20, right: 20, bottom: 30, left: 50},
-            width = +svg.attr("width") - margin.left - margin.right,
-            height = +svg.attr("height") - margin.top - margin.bottom,
+            width = innerWidth - margin.left - margin.right,
+            height = innerHeight - margin.top - margin.bottom,
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         
         var projection = d3.geoMercator()
-            .scale(4100)
-            .translate([width * 0.5, height * 3.5]);
+            .scale(scale)
+            .translate([width * 0.45, height * (scale / heightFactor)]);
 
         var path = d3.geoPath()
             .projection(projection);
-        
+
         // France Data
         d3.json("map_data/map.geojson", function(err, mapData) {
+            if (err) throw error;
 
             var features = mapData.features;
 
@@ -45,14 +43,14 @@
                 .enter().append('path')
                 .attr('d', path)
                 .attr("fill", "white")
+                // .attr("cursor", "pointer")
                 .style("stroke", (function(d) { return d.properties.stroke; }))
-                .style("stroke-width", (function(d) { return d.properties.stroke-width; }));         
+                .style("stroke-width", (function(d) { return d.properties.stroke-width; }));
+                // .call(d3.zoom().on("zoom", function () {
+                //     svg.attr("transform", d3.event.transform)
+                // }));
 
         });
-        
-
-
-
 
     </script>
     
