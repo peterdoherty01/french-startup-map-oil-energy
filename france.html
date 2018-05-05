@@ -7,7 +7,7 @@
     <title>Oil &amp; Energy French Startup Landscape | Peter Doherty</title>
 </head>
 <body>
-    <svg width="1280" height="1250"></svg>
+    <svg width="1280" height="550"></svg>
     <script src="http://d3js.org/d3.v4.min.js"></script>
     <script>
         // Hubs = Paris, Brest etc
@@ -15,18 +15,23 @@
         // Spawning from the hubs are lines which startups are located on
         // Extract the width and height that was computed by CSS.
 
-        var scale = 4100,
-            heightFactor = 620;
+        var scale = 2600;
 
         var svg = d3.select("svg"),
             margin = {top: 20, right: 20, bottom: 30, left: 50},
             width = innerWidth - margin.left - margin.right,
             height = innerHeight - margin.top - margin.bottom,
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        
-        var projection = d3.geoMercator()
+            
+            svg.append("rect")
+            .attr("class", "background")
+            .attr("width", width)
+            .attr("height", height);
+
+        var projection = d3.geoConicConformal()
+            .center([2.454071, 46.279229])
             .scale(scale)
-            .translate([width * 0.45, height * (scale / heightFactor)]);
+            .translate([width / 2, height / 2]);
 
         var path = d3.geoPath()
             .projection(projection);
@@ -46,12 +51,10 @@
                 // .attr("cursor", "pointer")
                 .style("stroke", (function(d) { return d.properties.stroke; }))
                 .style("stroke-width", (function(d) { return d.properties.stroke-width; }));
-                // .call(d3.zoom().on("zoom", function () {
-                //     svg.attr("transform", d3.event.transform)
-                // }));
-
+                // .on("click", clicked);
         });
-
+        
+        
     </script>
     
 
