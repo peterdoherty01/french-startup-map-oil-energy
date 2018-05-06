@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Oil &amp; Energy French Startup Landscape | Peter Doherty</title>
 </head>
+
+
 <body>
     <svg width="1280" height="550"></svg>
     <script src="http://d3js.org/d3.v4.min.js"></script>
@@ -15,7 +17,7 @@
         // Spawning from the hubs are lines which startups are located on
         // Extract the width and height that was computed by CSS.
 
-        var scale = 2600;
+        var scale = 2800;
 
         var svg = d3.select("svg"),
             margin = {top: 20, right: 20, bottom: 30, left: 50},
@@ -23,11 +25,6 @@
             height = innerHeight - margin.top - margin.bottom,
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
             
-            svg.append("rect")
-            .attr("class", "background")
-            .attr("width", width)
-            .attr("height", height);
-
         var projection = d3.geoConicConformal()
             .center([2.454071, 46.279229])
             .scale(scale)
@@ -36,6 +33,33 @@
         var path = d3.geoPath()
             .projection(projection);
 
+        // Zoom and Pan based on mouse location from: https://bl.ocks.org/rveciana/0b9b6a577af70a8ddbd410214004ea12
+        var g = svg.append("g")
+                .on("wheel.zoom", function () {
+                    var currScale = projection.scale();
+                    var newScale = currScale - 2 * event.deltaY;
+                    var currTranslate = projection.translate();
+                    var coords = projection.invert([event.offsetX, event.offsetY]);
+                    projection.scale(newScale);
+                    var newPos = projection(coords);
+
+                    projection.translate([currTranslate[0] + (event.offsetX - newPos[0]), currTranslate[1] + (event.offsetY - newPos[1])]);
+                    g.selectAll("path").attr("d", path);
+
+                })
+                .call(d3.drag().on("drag", function () {
+                    var currTranslate = projection.translate();
+                    projection.translate([currTranslate[0] + d3.event.dx,
+                    currTranslate[1] + d3.event.dy]);
+                    g.selectAll("path").attr("d", path);
+                }));
+
+            g.append("rect")
+                .attr("class", "background")
+                .attr("width", width)
+                .attr("height", height)
+                .style("fill", "#fcf4e0");
+
         // France Data
         d3.json("map_data/map.geojson", function(err, mapData) {
             if (err) throw error;
@@ -43,7 +67,7 @@
             var features = mapData.features;
 
             // Draw border and lines
-            svg.selectAll('path')
+            g.selectAll('path')
                 .data(features)
                 .enter().append('path')
                 .attr('d', path)
@@ -53,7 +77,6 @@
                 .style("stroke-width", (function(d) { return d.properties.stroke-width; }));
                 // .on("click", clicked);
         });
-        
         
     </script>
     
