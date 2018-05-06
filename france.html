@@ -33,32 +33,10 @@
         var path = d3.geoPath()
             .projection(projection);
 
-        // Zoom and Pan based on mouse location from: https://bl.ocks.org/rveciana/0b9b6a577af70a8ddbd410214004ea12
-        var g = svg.append("g")
-                .on("wheel.zoom", function () {
-                    var currScale = projection.scale();
-                    var newScale = currScale - 2 * event.deltaY;
-                    var currTranslate = projection.translate();
-                    var coords = projection.invert([event.offsetX, event.offsetY]);
-                    projection.scale(newScale);
-                    var newPos = projection(coords);
-
-                    projection.translate([currTranslate[0] + (event.offsetX - newPos[0]), currTranslate[1] + (event.offsetY - newPos[1])]);
-                    g.selectAll("path").attr("d", path);
-
-                })
-                .call(d3.drag().on("drag", function () {
-                    var currTranslate = projection.translate();
-                    projection.translate([currTranslate[0] + d3.event.dx,
-                    currTranslate[1] + d3.event.dy]);
-                    g.selectAll("path").attr("d", path);
-                }));
-
-            g.append("rect")
-                .attr("class", "background")
-                .attr("width", width)
-                .attr("height", height)
-                .style("fill", "#fcf4e0");
+        //create zoom handler 
+        //zoom actions is a function that performs the zooming. 
+        var zoom_handler = d3.zoom()
+            .on("zoom", zoom_actions);
 
         // France Data
         d3.json("map_data/map.geojson", function(err, mapData) {
@@ -77,7 +55,15 @@
                 .style("stroke-width", (function(d) { return d.properties.stroke-width; }));
                 // .on("click", clicked);
         });
-        
+        // Zoom http://www.puzzlr.org/zoom-in-d3v4-minimal-example/
+        //specify what to do when zoom event listener is triggered 
+        function zoom_actions(){
+            g.attr("transform", d3.event.transform);
+        }
+
+        //add zoom behaviour to the svg element 
+        //same as svg.call(zoom_handler); 
+        zoom_handler(svg);
     </script>
     
 
