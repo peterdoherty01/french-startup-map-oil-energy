@@ -15,11 +15,6 @@
 #### Oil & Gas
 ##### Drilling Fluids and Solids Control
 
-## Cleverfield
-### Paris
-#### Oil & Gas
-##### Production, Reservoir Engineering and Software development
-
 ## Coldpad
 ### Paris
 #### Oil & Gas
@@ -85,8 +80,8 @@
 #### Oil & Gas
 ##### Artificial Intelligence Solutions
 
-## New Wind
-### Paris | Brest
+## New World Wind
+### Paris
 #### Renewable Energy
 ##### Biomimetic Wind Turbines
 
