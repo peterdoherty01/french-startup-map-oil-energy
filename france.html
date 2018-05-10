@@ -7,15 +7,27 @@
     <title>Oil &amp; Energy French Startup Landscape | Peter Doherty</title>
 </head>
 
+<style>
+    .title {
+    font-weight: 500;
+    text-transform: uppercase;
+    text-anchor: middle;
+    opacity: 0.25;
+    color: #000;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 10px;
+    line-height: 28px;
+    letter-spacing: 0.33em;
+    }
+</style>
 
 <body>
     <svg width="1280" height="550"></svg>
     <script src="http://d3js.org/d3.v4.min.js"></script>
     <script>
         // Hubs = Paris, Brest etc
-        // Main Lines connect hubs
+        // Transit Lines connect hubs
         // Spawning from the hubs are lines which startups are located on
-        // Extract the width and height that was computed by CSS.
 
         var scale = 2800;
 
@@ -39,10 +51,11 @@
             .on("zoom", zoom_actions);
 
         // France Data
-        d3.json("map_data/map.geojson", function(err, mapData) {
+        d3.json("map_data/lines+border.geojson", function(err, mapData) {
             if (err) throw error;
 
             var features = mapData.features;
+            // console.log(features);
 
             // Draw border and lines
             g.selectAll('path')
@@ -50,10 +63,56 @@
                 .enter().append('path')
                 .attr('d', path)
                 .attr("fill", "white")
-                // .attr("cursor", "pointer")
-                .style("stroke", (function(d) { return d.properties.stroke; }))
-                .style("stroke-width", (function(d) { return d.properties.stroke-width; }));
-                // .on("click", clicked);
+                .style("stroke", function (d) { return d.properties.stroke; })
+                .style("stroke-width", function (d) { return d.properties.stroke-width; });
+                // .style("stroke", "Steelblue")
+                // .style("stroke-width", "1px");
+            
+            var startups = projection(
+                [2.35107421875,48.86471476180277]            
+            );
+
+            // var startups = {
+            //     "coordinates": [
+            //         2.35107421875,
+            //         48.86471476180277
+            //     ],
+            //     "id": "Paris"
+            // };
+            // console.log(startups);
+
+            var startups = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                "type": "Feature",
+                "properties": {},
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                    2.340087890625,
+                    48.879167148960214
+                    ]
+                }
+                }
+            ]
+            };
+            
+            g.append("circle")
+            .data(startups)
+            .enter().append('circle')
+            .attr("cx", function (d) { return d.geometry.coordinates[0]; })
+            .attr("cy", function (d) { return d.geometry.coordinates[1]; })
+            .attr("r", 1)
+            .style("fill", "red");
+
+            // Map Title
+            g.append("text")
+            .attr("class", "title")
+            .attr("x", width * 0.5)
+            .attr("y", height * 0.4)
+            .text('Oil & Energy | French Startup Map');
+
         });
         // Zoom http://www.puzzlr.org/zoom-in-d3v4-minimal-example/
         //specify what to do when zoom event listener is triggered 
