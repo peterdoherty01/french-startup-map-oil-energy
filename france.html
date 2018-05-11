@@ -14,22 +14,24 @@
     text-anchor: middle;
     opacity: 0.25;
     color: #000;
-    font-family: arial, helvetica, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
     font-size: 10px;
     line-height: 28px;
     letter-spacing: 0.33em;
     }
+
+    .name {
+    fill: #444;
+    }
 </style>
 
 <body>
-    <svg width="1280" height="550"></svg>
+    <svg width="1280" height="600"></svg>
     <script src="http://d3js.org/d3.v4.min.js"></script>
     <script>
         // Hubs = Paris, Brest etc
         // Transit Lines connect hubs
         // Spawning from the hubs are lines which startups are located on
-
-        var scale = 2800;
 
         var svg = d3.select("svg"),
             margin = {top: 20, right: 20, bottom: 30, left: 50},
@@ -37,6 +39,13 @@
             height = innerHeight - margin.top - margin.bottom,
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
             
+            // svg.append('rect')
+            // .attr('class', 'background')
+            // .attr('width', width)
+            // .attr('height', height);
+
+        var scale = 2800;
+
         var projection = d3.geoConicConformal()
             .center([2.454071, 46.279229])
             .scale(scale)
@@ -49,28 +58,42 @@
         //zoom actions is a function that performs the zooming. 
         var zoom_handler = d3.zoom()
             .on("zoom", zoom_actions);
-
+       
         // France Data
-        d3.json("map_data/lines+border.geojson", function(err, mapData) {
+        d3.json("map_data/master.geojson", function(err, mapData) {
             if (err) throw error;
 
             var features = mapData.features;
-            // console.log(features);
+            console.log(features);
 
             // Draw border and lines
-            g.selectAll('path')
+            g.selectAll("path")
                 .data(features)
-                .enter().append('path')
-                .attr('d', path)
+                .enter()
+                .append("path")
+                .attr("d", path)
                 .attr("fill", "white")
                 .style("stroke", function (d) { return d.properties.stroke; })
                 .style("stroke-width", function (d) { return d.properties.stroke-width; });
                 // .style("stroke", "Steelblue")
                 // .style("stroke-width", "1px");
-            
-            var startups = projection(
-                [2.35107421875,48.86471476180277]            
-            );
+
+            // Add places as black dots on map
+            // g.append("path")
+            //     .datum(features.properties.name)
+            //     .attr("d", path)
+            //     .attr("class", "name");
+              
+
+            // g.append('path')
+            //     .data(features)
+            //     // .enter().append('path')
+            //     .attr('d', path)
+            //     .attr("class", "place");
+
+            // var startups = projection(
+            //     [2.35107421875,48.86471476180277]            
+            // );
 
             // var startups = {
             //     "coordinates": [
@@ -79,32 +102,16 @@
             //     ],
             //     "id": "Paris"
             // };
-            // console.log(startups);
-
-            var startups = {
-            "type": "FeatureCollection",
-            "features": [
-                {
-                "type": "Feature",
-                "properties": {},
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [
-                    2.340087890625,
-                    48.879167148960214
-                    ]
-                }
-                }
-            ]
-            };
             
-            g.append("circle")
-            .data(startups)
-            .enter().append('circle')
-            .attr("cx", function (d) { return d.geometry.coordinates[0]; })
-            .attr("cy", function (d) { return d.geometry.coordinates[1]; })
-            .attr("r", 1)
-            .style("fill", "red");
+            // g.append("circle")
+            // .data(startups)
+            // .enter().append('circle')
+            // .attr("cx", function (d) { return d.geometry.coordinates[0]; })
+            // .attr("cy", function (d) { return d.geometry.coordinates[1]; })
+            // .attr("cx", startups[0] )
+            // .attr("cy", startups[1] )
+            // .attr("r", "10")
+            // .style("fill", "Red");
 
             // Map Title
             g.append("text")
