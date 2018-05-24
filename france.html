@@ -12,10 +12,10 @@
         font-weight: 500;
         text-transform: uppercase;
         text-anchor: middle;
-        opacity: 0.25;
-        color: #000;
+        /* opacity: 0.25; */
+        fill: #fff;
         font-family: 'Trebuchet MS', sans-serif;
-        font-size: 10px;
+        font-size: 12px;
         line-height: 28px;
         letter-spacing: 0.33em;
     }
@@ -33,19 +33,24 @@
         font-family: 'Open Sans';
     }
 
-    div.tooltip {
+    div.startuptooltip {
         position: absolute;
         text-align: center;
-        width: 250px;
-        height: 30px;
+        width: 300px;
+        height: 60px;
         padding: 2px;
         fill: #fff;
-        font: 12px Open Sans;
+        font: 20px Open Sans;
         background: steelblue;
         border: 0.1px;
         border-radius: 4px;
     }
-
+	/* .place-label:hover {
+		font-size: 10px;
+        fill: rgb(27, 27, 27);
+        font-style: italic;
+        font-family: 'Tahoma';
+	} */
 </style>
 
 <body>
@@ -57,13 +62,44 @@
         // Spawning from the hubs are lines which startups are located on
 
         var svg = d3.select("svg"),
-            margin = {top: 20, right: 20, bottom: 30, left: 50},
+            margin = {top: 10, right: 10, bottom: 10, left: 10},
             width = innerWidth - margin.left - margin.right,
             height = innerHeight - margin.top - margin.bottom,
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         
+        var rectangle = svg.append("rect")
+            .attr("x", innerWidth * 0.7- margin.left)
+            .attr("y", 0)
+            .attr("width", innerWidth * 0.3)
+            .attr("height", innerHeight)
+            .attr("fill", "blue");
+
+            // Map Title
+            svg.append("text")
+                .attr("class", "title")
+                .attr("x", innerWidth - margin.left * 20)
+                .attr("y", 20)
+                .text('French Startup Map');
+            
+            svg.append("text")
+                .attr("class", "title")
+                .attr("x", innerWidth - margin.left * 20)
+                .attr("y", 40)
+                .text('Oil & Energy | V2 | June 2018');
+            
+            // svg.append("text")
+            //     // .attr("class", "title")
+            //     .attr("x", innerWidth - margin.left * 50)
+            //     .attr("y", innerHeight - 115)
+            //     .attr("class", "title")
+            //     .text("Copyright 2018" + '<a href=' + "" + "peter@computationhub.com" + "" + '>' + "Peter Doherty" + '</a>');
+            
+
+
+
+        // Tooltip
         var div = d3.select("body").append("div")
-            .attr("class", "tooltip")
+            .attr("class", "startuptooltip")
             .style("opacity", 0);
         
         // spacing for label text
@@ -72,7 +108,7 @@
         var scale = 2800;
 
         var projection = d3.geoConicConformal()
-            .center([2.454071, 46.279229])
+            .center([8.454071, 45.279229])
             .scale(scale)
             .translate([width / 2, height / 2]);
 
@@ -103,7 +139,7 @@
                 .style("vector-effect", "non-scaling-stroke");
 
             // //Load in startups and cities from CSV data
-            d3.csv("map_data/master.csv", function(err, data) {
+            d3.csv("map_data/fr_startups.csv", function(err, data) {
                 if (err) throw error;
                 
                 g.selectAll("circle")
@@ -140,7 +176,7 @@
                         div.transition()
                             // .duration(200)
                             .style("opacity", .9);
-                        div.html(d.id + "<br>" + '<a href=' + "" + d.website + "" + '>' + d.website + '</a>')
+                        div.html("Information:" + "<br>" + '<a href=' + "" + d.website + "" + '>' + d.website + '</a>')
                             .style("left", (d3.event.pageX + 50) + "px")
                             .style("top", (d3.event.pageY - 50) + "px");
                         })
@@ -149,15 +185,7 @@
                             .duration(5000)
                             .style("opacity", 0);
                         });
-
             });
-
-            // Map Title
-            g.append("text")
-                .attr("class", "title")
-                .attr("x", width * 0.5)
-                .attr("y", height * 0.4)
-                .text('French Startup Map | Oil & Energy');
 
         });
         // Zoom http://www.puzzlr.org/zoom-in-d3v4-minimal-example/
