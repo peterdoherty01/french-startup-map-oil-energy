@@ -1,4 +1,4 @@
-color,marker-size,marker-symbol,name,r,lon,lat,id
+marker-color,marker-size,marker-symbol,name,r,lon,lat,id
 #ffffff,medium,,Paris,10,2.3474,48.8588,
 #ffffff,medium,,Brest,10,-4.4802,48.3879,
 #ffffff,medium,,Nantes,10,-1.5415,47.2176,
