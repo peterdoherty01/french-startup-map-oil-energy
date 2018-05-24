@@ -14,22 +14,23 @@
         text-anchor: middle;
         opacity: 0.25;
         color: #000;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+        font-family: 'Trebuchet MS', sans-serif;
         font-size: 10px;
         line-height: 28px;
         letter-spacing: 0.33em;
     }
 
     .place-label {
-        font-size: 3px;
-        fill: #444;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+        font-size: 1px;
+        fill: rgb(27, 27, 27);
+        font-style: italic;
+        font-family: 'Tahoma';
     }
 
     .startup-label {
-        font-size: 1px;
+        font-size: 0.5px;
         fill: #444;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+        font-family: 'Open Sans';
     }
 
     div.tooltip {
@@ -56,7 +57,10 @@
             width = innerWidth - margin.left - margin.right,
             height = innerHeight - margin.top - margin.bottom,
             g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-            
+    
+        // spacing for label text
+        var spaceX = 1.005;
+
         var scale = 2800;
 
         var projection = d3.geoConicConformal()
@@ -103,13 +107,14 @@
                 .attr("r", function(d) { return d.r * 0.25; })
                 .style("fill", function(d) { return d["marker-color"]; });
                 
-                // Cityor region Title
+                // City or region Title
                 g.selectAll(".place-label")
                     .data(data)
                     .enter()
                     .append("text")
                     .attr("class", "place-label")
-                    .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; })
+                    .attr("transform", function(d) { return "translate(" + projection([d.lon * spaceX, d.lat]) + ")"; })
+                    .style("text-anchor", function(d) { return d.lon > -1 ? "start" : "end"; }) // west -> assign labels on LHS; east -> assign labels on RHS
                     .attr("dy", ".35em")
                     .text(function(d) { return d.name; });
                 
@@ -119,7 +124,8 @@
                     .enter()
                     .append("text")
                     .attr("class", "startup-label")
-                    .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; })
+                    .attr("transform", function(d) { return "translate(" + projection([d.lon * spaceX, d.lat]) + ")"; })
+                    .style("text-anchor", function(d) { return d.lon > -1 ? "start" : "end"; })
                     .attr("dy", ".35em")
                     .text(function(d) { return d.id; });
 
@@ -145,13 +151,13 @@
                 // .attr("stroke-width", function (d) { return d.properties.stroke - width; });
             
             g.selectAll("circle") 
-                .attr("r", function(d) { return d.r * 0.25 / d3.event.transform.k; });
+                .attr("r", function(d) { return d.r * 0.015; });
 
-            g.selectAll(".place-label")
-                .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; });
+            // g.selectAll(".place-label")
+            //     .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; });
 
-            g.selectAll(".startup-label")
-                .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; });
+            // g.selectAll(".startup-label")
+            //     .attr("transform", function(d) { return "translate(" + projection([d.lon, d.lat]) + ")"; });
                
         }
 
