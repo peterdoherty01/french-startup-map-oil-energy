@@ -11,11 +11,12 @@ To add a startups name to the list send an email to peter@computationhub.com, in
 
 * Startup name
 * Location (e.g. Paris, Nantes etc.)
+* Coordinates (Longitude, Latitude) [Optional]
 * Business area (e.g. Machine Learning or Data Acquistion etc.)
 * Website
 
 ### Live List
-A live list of startups to be added to the map will be logged under "issues", [accessible here.](https://github.com/peter-doherty/french-startup-map-oil-energy/issues)
+A live list of startups to be added to the map will be [logged under "issues"](https://github.com/peter-doherty/french-startup-map-oil-energy/issues)
 
 ## Publication
 Feel free to republish this list accordingly whilst following the MIT licence rules. The latest and greatest list will be published in the following LinkedIn Groups and via this medium:
@@ -24,7 +25,7 @@ Feel free to republish this list accordingly whilst following the MIT licence ru
 2. [Energies Marines Renouvelables et Innovation maritime](https://www.linkedin.com/groups/4129100)
 3. [On Startups](https://www.linkedin.com/groups/2877)
 
-## Archived Issues
+## Archive
 
 * [Issue 01, Dec 2017](https://www.linkedin.com/pulse/oil-energy-french-startup-landscape-peter-doherty/)
 
@@ -44,9 +45,9 @@ The *grand over-the-top vision* would be to extend the map to include startups f
 
 ## Built With Open Source Libraries / References
 
-* https://github.com/AshKyd/geojson-regions
-* https://d3js.org/
-* Zoom - http://www.puzzlr.org/zoom-in-d3v4-minimal-example
+* [France geojson](https://github.com/AshKyd/geojson-regions)
+* [D3.js v4.13.0](https://d3js.org/)
+* [Support with Zoom](http://www.puzzlr.org/zoom-in-d3v4-minimal-example)
 
 ## License
 MIT License 2018
