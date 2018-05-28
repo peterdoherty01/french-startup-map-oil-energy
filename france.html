@@ -129,20 +129,20 @@
 
         var scale = 2800;
 
-        var legendBackgroundcover = svg.append("rect")
-            .attr("x", innerWidth * 0.6)
-            .attr("y", innerHeight * 0.05)
-            .attr("width", innerWidth * 0.5)
-            .attr("height", innerHeight - (169)) // can be cleaner
-            .attr("fill", "#f2eded");
+        // var legendBackgroundcover = svg.append("rect")
+        //     .attr("x", innerWidth * 0.6)
+        //     .attr("y", innerHeight * 0.05)
+        //     .attr("width", innerWidth * 0.5)
+        //     .attr("height", innerHeight - (169)) // can be cleaner
+        //     .attr("fill", "#f2eded");
         
         // Rect to be a yellow type color
-        // var legendBackground = svg.append("rect")
-        //     .attr("x", innerWidth * 0.6)
-        //     .attr("y", innerHeight * 0.1)
-        //     .attr("width", innerWidth * 0.35)
-        //     .attr("height", innerHeight * 0.6)
-        //     .attr("fill", "#fff5ba");
+        var legendBackground = svg.append("rect")
+            .attr("x", innerWidth * 0.6)
+            .attr("y", innerHeight * 0.1)
+            .attr("width", innerWidth * 0.35)
+            .attr("height", innerHeight * 0.6)
+            .attr("fill", "#fff5ba");
 
         var legend = svg.append("svg")
             .attr("x", innerWidth * 0.6)
@@ -183,23 +183,23 @@
                 .style("vector-effect", "non-scaling-stroke");
             
                 legend.selectAll("rect") 
-                    .data(features.slice(1,7)) //Lines
+                    .data(features.slice(1,8)) //Lines
                     .enter()
                     .append("circle")
                     .attr("cx", innerWidth * 0.25)
-                    .attr("cy", function(d, i){ return 2 + i * 15;})
+                    .attr("cy", function(d, i){ return 5 + i * 15;})
                     .attr("r", "5")
                     // .attr("stroke", function (d) { return d.properties.stroke; })
                     // .attr("stroke-width", 0.05)
                     .style("fill", function (d) { return d.properties.stroke; });
 
                 legend.selectAll("rect") 
-                    .data(features.slice(1,7))
+                    .data(features.slice(1,8))
                     .enter()
                     .append("text")
                     .attr("class", "city-label-legend")
                     .attr("x", innerWidth * 0.26)
-                    .attr("y", function(d, i){ return 5 + i * 15;})
+                    .attr("y", function(d, i){ return 8 + i * 15;})
                     .text(function(d) { return d.properties["transit-line"]; });
             
             // //Load in startups and cities from CSV data
