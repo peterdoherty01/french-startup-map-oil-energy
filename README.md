@@ -1,25 +1,8 @@
-# Oil &amp; Energy - French Startup Landscape
+# French Startup Map | Oil &amp; Energy
 
 ## Introduction
 
-This is **second issue** of the French Startup Landscape in the Oil & Energy sector. The objective is to present a database of startup companies created in France operating in the following sectors: 
-
-![Oil & Gas](https://images.pexels.com/photos/87236/pexels-photo-87236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
-__Oil & Gas (Onshore & Offshore)__
-
-![Renewable Energy](https://images.pexels.com/photos/157040/pexels-photo-157040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
-__Renewable Energy (Onshore & Offshore)__
-
-## Further Work
-
-The *grand over-the-top vision* would be to extend the map to include other countries with energy sector hubs:
-
-* Aberdeen
-* Houston
-* Perth
-* Rio
-* Kuala Lumpur
-* London
+This is the **second issue** of the French Startup Map focusing on the Oil & Energy sector. The objective is to present a database of startup companies created in France operating in the following sectors: 
 
 ## Add a Startup
 
@@ -29,9 +12,10 @@ To add a startups name to the list send an email to peter@computationhub.com, in
 * Startup name
 * Location (e.g. Paris, Nantes etc.)
 * Business area (e.g. Machine Learning or Data Acquistion etc.)
+* Website
 
 ### Live List
-A live list of startups to be added to the list will be logged under "issues", [accessible here.](https://github.com/peter-doherty/oil-energy-french-startup-landscape/issues)
+A live list of startups to be added to the map will be logged under "issues", [accessible here.](https://github.com/peter-doherty/french-startup-map-oil-energy/issues)
 
 ## Publication
 Feel free to republish this list accordingly whilst following the MIT licence rules. The latest and greatest list will be published in the following LinkedIn Groups and via this medium:
@@ -46,14 +30,23 @@ Feel free to republish this list accordingly whilst following the MIT licence ru
 
 ## Suggestions
 
-All suggestions are welcome. Please refer to the "How It Works" section. 
+All suggestions are welcome by email (peter@computationhub.com) or by logging an issue in the GitHub repository. 
 
-## Contributors Required
-If you want to become a contributor for this project, please contact me - peter@computationhub.com.
+## Further Work
+The *grand over-the-top vision* would be to extend the map to include startups from other areas such as:
 
-## Built With Open Source Libraries
+* Aberdeen
+* Houston
+* Perth
+* Rio
+* Kuala Lumpur
+* London
+
+## Built With Open Source Libraries / References
 
 * https://github.com/AshKyd/geojson-regions
+* https://d3js.org/
+* Zoom - http://www.puzzlr.org/zoom-in-d3v4-minimal-example
 
 ## License
-MIT License
+MIT License 2018
