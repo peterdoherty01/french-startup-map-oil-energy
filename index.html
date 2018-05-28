@@ -5,82 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>French Startup Map | Oil &amp; Energy | Peter Doherty Copyright 2018</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/pexels-photo-604414.jpeg" />
+    
 </head>
-
-<style>
-    .title {
-        font-weight: 500;
-        text-transform: uppercase;
-        text-anchor: middle;
-        /* opacity: 0.25; */
-        fill: #fff;
-        font-family: 'Trebuchet MS', sans-serif;
-        font-size: 12px;
-        line-height: 28px;
-        letter-spacing: 0.33em;
-    }
-
-    .footer {
-        font-weight: 500;
-        /* text-transform: uppercase; */
-        text-anchor: middle;
-        /* opacity: 0.25; */
-        fill: #fff;
-        font-family: 'Trebuchet MS', sans-serif;
-        font-size: 8px;
-        line-height: 28px;
-        letter-spacing: 0.33em;
-    }
-
-    .place-label {
-        font-size: 1px;
-        fill: rgb(27, 27, 27);
-        font-style: italic;
-        font-family: 'Tahoma';
-    }
-
-    .startup-label {
-        font-size: 0.5px;
-        fill: #444;
-        font-family: 'Helvetica';
-    }
-
-    .startup-label-legend {
-        font-size: 10px;
-        fill: #444;
-        font-family: 'Helvetica';
-    }
-
-    .city-label-legend {
-        font-size: 10px;
-        fill: rgb(27, 27, 27);
-        font-style: italic;
-        font-family: 'Tahoma';
-    }
-
-    div.startuptooltip {
-        position: absolute;
-        text-align: center;
-        width: 300px;
-        height: 60px;
-        padding: 2px;
-        fill: #fff;
-        font: 20px Open Sans;
-        background: steelblue;
-        border: 0.1px;
-        border-radius: 4px;
-    }
-	/* .place-label:hover {
-		font-size: 10px;
-        fill: rgb(27, 27, 27);
-        font-style: italic;
-        font-family: 'Tahoma';
-	} */
-</style>
 
 <body>
     <svg width="1280" height="600"></svg>
-    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <!-- v4.13.0 -->
+    <script src="js/d3/d3.min.js"></script> 
     <script>
         // Hubs = Paris, Brest etc
         // Transit Lines connect hubs
@@ -129,19 +63,19 @@
 
         var scale = 2800;
 
-        // var legendBackgroundcover = svg.append("rect")
-        //     .attr("x", innerWidth * 0.6)
-        //     .attr("y", innerHeight * 0.05)
-        //     .attr("width", innerWidth * 0.5)
-        //     .attr("height", innerHeight - (169)) // can be cleaner
-        //     .attr("fill", "#f2eded");
+        var legendBackgroundcover = svg.append("rect")
+            .attr("x", innerWidth * 0.6)
+            .attr("y", innerHeight * 0.05)
+            .attr("width", innerWidth * 0.5)
+            .attr("height", innerHeight - (169)) // can be cleaner
+            .attr("fill", "#f2eded");
         
         // Rect to be a yellow type color
         var legendBackground = svg.append("rect")
             .attr("x", innerWidth * 0.6)
             .attr("y", innerHeight * 0.1)
             .attr("width", innerWidth * 0.35)
-            .attr("height", innerHeight * 0.6)
+            .attr("height", innerHeight * 0.65)
             .attr("fill", "#fff5ba");
 
         var legend = svg.append("svg")
@@ -246,10 +180,10 @@
                     .enter()
                     .append("circle")
                     .attr("cx", innerWidth * 0.15)
-                    .attr("cy", function(d, i){ return 10 + i * 25;})
+                    .attr("cy", function(d, i){ return 10.5 + i * 25;})
                     .attr("r", function(d) { return d.r; })
                     .attr("stroke", function(d) { return d.stroke; })
-                    .attr("stroke-width", 0.05)
+                    .attr("stroke-width", 0.8)
                     .style("fill", function(d) { return d["marker-color"]; });
                 
                 // Legend label text for cities
@@ -293,7 +227,7 @@
                         })
                         .on("mouseout", function(d) {
                             div.transition()
-                            .duration(5000)
+                            .duration(2000)
                             .style("opacity", 0);
                         });
             });

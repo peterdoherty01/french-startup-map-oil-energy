@@ -9,11 +9,11 @@ marker-color,marker-size,marker-symbol,name,r,stroke,lon,lat,id,website
 #ffffff,medium,,Meyreuil,10,black,5.494537353515625,43.48630671140664,,
 #ffffff,medium,,Lyon,10,black,4.8253,45.7483,,
 #ffffff,medium,,Bordeaux,10,black,-0.5564,44.8246,,
-#0000ff,medium,,,5,,2.3024243116378784,48.87541684512414,Maillance,https://maillance.com
-#0000ff,medium,,,5,,2.192416191101074,48.885185393174375,Computation Hub,www.computationhub.com
-#0000ff,medium,,,5,,2.2836408019065857,48.86606985044708,Skipper NDT,www.skipperndt.com
-#0000ff,medium,,,5,,2.346678078174591,48.87061653991723,Kpler,https://www.kpler.com
-#0000ff,medium,,,5,,2.337679266929626,48.87433897766024,Kayrros,https://www.kayrros.com
+#c0392b,medium,,,5,,2.3024243116378784,48.87541684512414,Maillance,https://maillance.com
+#c0392b,medium,,,5,,2.192416191101074,48.885185393174375,Computation Hub,www.computationhub.com
+#c0392b,medium,,,5,,2.2836408019065857,48.86606985044708,Skipper NDT,www.skipperndt.com
+#c0392b,medium,,,5,,2.346678078174591,48.87061653991723,Kpler,https://www.kpler.com
+#c0392b,medium,,,5,,2.337679266929626,48.87433897766024,Kayrros,https://www.kayrros.com
 #000040,medium,,,5,,2.3762333393096924,48.865468181502685,Open Ocean,www.openocean.fr
 #804040,medium,,,5,,2.2919368743896484,48.84988049431463,Cold Pad,https://www.cold-pad.com
 #804040,medium,,,5,,2.28490948677063,48.8416232128161,Forrsea Robotics,www.forssea-robotics.fr
@@ -25,9 +25,9 @@ marker-color,marker-size,marker-symbol,name,r,stroke,lon,lat,id,website
 #ff0080,medium,,,5,,2.23645806312561,48.70244660563071,Fly Instinct,https://www.flyinstinct.com
 #808040,medium,,,5,,-1.5478277206420898,47.24906466407969,D-Ice Engineering,www.dice-engineering.com
 #808040,medium,,,5,,-1.515212059020996,47.28365428037878,ROBOPLANET,www.roboplanet.fr
-#00ff80,medium,,,5,,-4.568681716918945,48.359043630560485,e-Odyn,www.e-odyn.com
+#606b6a,medium,,,5,,-4.568681716918945,48.359043630560485,e-Odyn,www.e-odyn.com
 #13ec6a,medium,,,5,,2.292725443840027,48.908672896735865,New World Wind,www.newworldwind.com
-#004080,medium,,,5,,-0.5554318428039551,44.86310878137558,Fieldbox.ai,https://www.fieldbox.ai
+#9467bd,medium,,,5,,-0.5554318428039551,44.86310878137558,Fieldbox.ai,https://www.fieldbox.ai
 #00b7b7,medium,,,5,,-0.4309773445129394,43.31364091223343,BOPS64,www.bops64.com
 #00b7b7,medium,,,5,,-0.30300915241241455,43.31876950231436,ChemFor,www.chemfor.com/
 #008080,medium,,,5,,3.9131712913513184,43.61858614444984,Voxaya,www.voxaya.com
