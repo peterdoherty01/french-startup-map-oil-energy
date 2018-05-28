@@ -247,10 +247,10 @@
                     .enter()
                     .append("circle")
                     .attr("cx", innerWidth * 0.15)
-                    .attr("cy", function(d, i){ return 10 + i * 25;})
+                    .attr("cy", function(d, i){ return 10.5 + i * 25;})
                     .attr("r", function(d) { return d.r; })
                     .attr("stroke", function(d) { return d.stroke; })
-                    .attr("stroke-width", 0.05)
+                    .attr("stroke-width", 0.8)
                     .style("fill", function(d) { return d["marker-color"]; });
                 
                 // Legend label text for cities
