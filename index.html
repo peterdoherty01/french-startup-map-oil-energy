@@ -5,78 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>French Startup Map | Oil &amp; Energy | Peter Doherty Copyright 2018</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/pexels-photo-604414.jpeg" />
+    
 </head>
-
-<style>
-    .title {
-        font-weight: 500;
-        text-transform: uppercase;
-        text-anchor: middle;
-        /* opacity: 0.25; */
-        fill: #fff;
-        font-family: 'Trebuchet MS', sans-serif;
-        font-size: 12px;
-        line-height: 28px;
-        letter-spacing: 0.33em;
-    }
-
-    .footer {
-        font-weight: 500;
-        /* text-transform: uppercase; */
-        text-anchor: middle;
-        /* opacity: 0.25; */
-        fill: #fff;
-        font-family: 'Trebuchet MS', sans-serif;
-        font-size: 8px;
-        line-height: 28px;
-        letter-spacing: 0.33em;
-    }
-
-    .place-label {
-        font-size: 1px;
-        fill: rgb(27, 27, 27);
-        font-style: italic;
-        font-family: 'Tahoma';
-    }
-
-    .startup-label {
-        font-size: 0.5px;
-        fill: #444;
-        font-family: 'Helvetica';
-    }
-
-    .startup-label-legend {
-        font-size: 10px;
-        fill: #444;
-        font-family: 'Helvetica';
-    }
-
-    .city-label-legend {
-        font-size: 10px;
-        fill: rgb(27, 27, 27);
-        font-style: italic;
-        font-family: 'Tahoma';
-    }
-
-    div.startuptooltip {
-        position: absolute;
-        text-align: center;
-        width: 300px;
-        height: 60px;
-        padding: 2px;
-        fill: #fff;
-        font: 20px Open Sans;
-        background: steelblue;
-        border: 0.1px;
-        border-radius: 4px;
-    }
-	/* .place-label:hover {
-		font-size: 10px;
-        fill: rgb(27, 27, 27);
-        font-style: italic;
-        font-family: 'Tahoma';
-	} */
-</style>
 
 <body>
     <svg width="1280" height="600"></svg>
@@ -294,7 +227,7 @@
                         })
                         .on("mouseout", function(d) {
                             div.transition()
-                            .duration(5000)
+                            .duration(2000)
                             .style("opacity", 0);
                         });
             });
