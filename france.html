@@ -45,6 +45,19 @@
         font-family: 'Helvetica';
     }
 
+    .startup-label-legend {
+        font-size: 10px;
+        fill: #444;
+        font-family: 'Helvetica';
+    }
+
+    .city-label-legend {
+        font-size: 10px;
+        fill: rgb(27, 27, 27);
+        font-style: italic;
+        font-family: 'Tahoma';
+    }
+
     div.startuptooltip {
         position: absolute;
         text-align: center;
@@ -95,7 +108,7 @@
         
         var footer = svg.append("rect")
             .attr("x", 0)
-            .attr("y", innerHeight - 125)
+            .attr("y", innerHeight * 0.88)
             .attr("width", innerWidth )
             .attr("height", innerHeight * 0.05)
             .attr("fill", "red");
@@ -103,35 +116,9 @@
             svg.append("text")
                 .attr("class", "footer")
                 .attr("x", innerWidth * 0.5)
-                .attr("y", innerHeight - 110)
+                .attr("y", innerHeight * 0.9)
                 .text("Copyright 2018 © Peter Doherty. MIT Licence");
-        
-        var startupCities = ([
-            "Paris",
-            "Pau", 
-            "Montpellier",
-            "Nantes",
-            "Brest",
-            "Meyreuil",
-            "La Ciotat", 
-            "Bordeaux"
-            ]);
-
-        var legend = svg.append("rect")
-            .attr("x", innerWidth * 0.6)
-            .attr("y", innerHeight * 0.15)
-            .attr("width", innerWidth * 0.35 )
-            .attr("height", innerHeight * 0.6)
-            .attr("fill", "#fff482")
-            .attr("stroke", "blue");
-
-            legend.append("text")
-            .data(startupCities)
-            .enter()
-            .append()
-
             
-
         // Tooltip
         var div = d3.select("body").append("div")
             .attr("class", "startuptooltip")
@@ -141,6 +128,14 @@
         var spaceX = 1.005;
 
         var scale = 2800;
+
+        var legend = svg.append("svg")
+            .attr("x", innerWidth * 0.6)
+            .attr("y", innerHeight * 0.15)
+            .attr("width", innerWidth * 0.35 )
+            .attr("height", innerHeight * 0.7)
+            .attr("fill", "#fff482")
+            .attr("stroke", "blue");
 
         var projection = d3.geoConicConformal()
             .center([8.454071, 45.579229]) // trial and error
@@ -177,7 +172,8 @@
             d3.csv("map_data/fr_startups.csv", function(err, data) {
                 if (err) throw error;
                 
-                g.selectAll("circle")
+                // Startup and Startup Cities located on the map
+                g.selectAll("circle") 
                     .data(data)
                     .enter()
                     .append("circle")
@@ -188,14 +184,49 @@
                     .attr("stroke-width", 0.05)
                     .style("fill", function(d) { return d["marker-color"]; });
                 
-                // svg.append("circle")
-                //     .data(data)
-                //     .enter()
-                //     .append("circle")
-                //     .attr("cx", 150)
-                //     .attr("cy", function(d, i) { return i * 5; })
-                //     .attr("r", function(d) { return d.r * 0.25; })
-                //     .style("fill", function(d) { return d["marker-color"]; });
+                // Legend markers
+                legend.selectAll("rect") 
+                    .data(data.slice(10).sort()) //Startups
+                    .enter()
+                    .append("circle")
+                    .attr("cx", innerWidth * 0.015)
+                    .attr("cy", function(d, i){ return 5 + i * 15;})
+                    .attr("r", function(d) { return d.r; })
+                    .attr("stroke", function(d) { return d.stroke; })
+                    .attr("stroke-width", 0.05)
+                    .style("fill", function(d) { return d["marker-color"]; });
+                
+                // legend label text for startups
+                legend.selectAll("rect") 
+                    .data(data.slice(10).sort())
+                    .enter()
+                    .append("text")
+                    .attr("class", "startup-label-legend")
+                    .attr("x", innerWidth * 0.02)
+                    .attr("y", function(d, i){ return 8 + i * 15;})
+                    .text(function(d) { return d.id; });
+                
+                // Legend markers
+                legend.selectAll("rect") 
+                    .data(data.slice(1,10)) //Cities
+                    .enter()
+                    .append("circle")
+                    .attr("cx", innerWidth * 0.15)
+                    .attr("cy", function(d, i){ return 10 + i * 25;})
+                    .attr("r", function(d) { return d.r; })
+                    .attr("stroke", function(d) { return d.stroke; })
+                    .attr("stroke-width", 0.05)
+                    .style("fill", function(d) { return d["marker-color"]; });
+                
+                // legend label text for cities
+                legend.selectAll("rect") 
+                    .data(data.slice(1,10).sort())
+                    .enter()
+                    .append("text")
+                    .attr("class", "city-label-legend")
+                    .attr("x", innerWidth * 0.16)
+                    .attr("y", function(d, i){ return 14 + i * 25;})
+                    .text(function(d) { return d.name; });
                 
                 // City or region Title
                 g.selectAll(".place-label")
