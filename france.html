@@ -106,18 +106,18 @@
                 .attr("y", 20)
                 .text('French Startup Map | Oil & Energy | V2 | June 2018');
         
-        // var footer = svg.append("rect")
-        //     .attr("x", 0)
-        //     .attr("y", innerHeight * 0.81)
-        //     .attr("width", innerWidth )
-        //     .attr("height", innerHeight * 0.05)
-        //     .attr("fill", "red");
+        var footer = svg.append("rect")
+            .attr("x", 0)
+            .attr("y", innerHeight * 0.88) // innerHeight - 80
+            .attr("width", innerWidth)
+            .attr("height", 25)
+            .attr("fill", "red");
             
-        //     svg.append("text")
-        //         .attr("class", "footer")
-        //         .attr("x", innerWidth * 0.5)
-        //         .attr("y", innerHeight * 0.85)
-        //         .text("Copyright 2018 © Peter Doherty. MIT Licence");
+            svg.append("text")
+                .attr("class", "footer")
+                .attr("x", innerWidth * 0.5)
+                .attr("y", innerHeight * 0.9) // innerHeight - 65
+                .text("Copyright 2018 © Peter Doherty. MIT Licence");
             
         // Tooltip
         var div = d3.select("body").append("div")
