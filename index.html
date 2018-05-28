@@ -63,19 +63,19 @@
 
         var scale = 2800;
 
-        // var legendBackgroundcover = svg.append("rect")
-        //     .attr("x", innerWidth * 0.6)
-        //     .attr("y", innerHeight * 0.05)
-        //     .attr("width", innerWidth * 0.5)
-        //     .attr("height", innerHeight - (169)) // can be cleaner
-        //     .attr("fill", "#f2eded");
+        var legendBackgroundcover = svg.append("rect")
+            .attr("x", innerWidth * 0.6)
+            .attr("y", innerHeight * 0.05)
+            .attr("width", innerWidth * 0.5)
+            .attr("height", innerHeight - (169)) // can be cleaner
+            .attr("fill", "#f2eded");
         
         // Rect to be a yellow type color
         var legendBackground = svg.append("rect")
             .attr("x", innerWidth * 0.6)
             .attr("y", innerHeight * 0.1)
             .attr("width", innerWidth * 0.35)
-            .attr("height", innerHeight * 0.6)
+            .attr("height", innerHeight * 0.65)
             .attr("fill", "#fff5ba");
 
         var legend = svg.append("svg")
