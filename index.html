@@ -63,12 +63,12 @@
 
         var scale = 2800;
 
-        var legendBackgroundcover = svg.append("rect")
-            .attr("x", innerWidth * 0.6)
-            .attr("y", innerHeight * 0.05)
-            .attr("width", innerWidth * 0.5)
-            .attr("height", innerHeight - (169)) // can be cleaner
-            .attr("fill", "#f2eded");
+        // var legendBackgroundcover = svg.append("rect")
+        //     .attr("x", innerWidth * 0.6)
+        //     .attr("y", innerHeight * 0.05)
+        //     .attr("width", innerWidth * 0.5)
+        //     .attr("height", innerHeight - (169)) // can be cleaner
+        //     .attr("fill", "#f2eded");
         
         // Rect to be a yellow type color
         var legendBackground = svg.append("rect")
@@ -103,7 +103,7 @@
             if (err) throw error;
 
             var features = mapData.features;
-            console.log(features);
+            // console.log(features);
 
             // Draw border and lines
             g.selectAll("path")
@@ -175,8 +175,26 @@
                     .text(function(d) { return d.id; });
                 
                 // Legend markers
+                var cities = data.slice(0,10);
+
+                function compare(a, b) {
+                    // Use toUpperCase() to ignore character casing
+                    const nameA = a.name.toUpperCase();
+                    const nameB = b.name.toUpperCase();
+
+                    let comparison = 0;
+                    if (nameA > nameB) {
+                        comparison = 1;
+                    } else if (nameA < nameB) {
+                        comparison = -1;
+                    }
+                    return comparison;
+                }
+                var test = cities.sort(compare);
+                // console.log(cities);
+
                 legend.selectAll("rect") 
-                    .data(data.slice(0,10).sort()) //Cities
+                    .data(test) //Cities
                     .enter()
                     .append("circle")
                     .attr("cx", innerWidth * 0.15)
