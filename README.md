@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is the **second issue** of the French Startup Map focusing on the Oil & Energy sector. The objective is to present a database of startup companies created in France operating in the following sectors: 
+This is the **second issue** of the French Startup Map focusing on the Oil & Energy sector. The objective is to present a database of startup companies created in France operating in the Oil & Energy sector. 
 
 ## Add a Startup
 
